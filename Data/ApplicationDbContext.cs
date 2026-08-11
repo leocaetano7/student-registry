@@ -2,15 +2,26 @@
 using Microsoft.EntityFrameworkCore;
 using testeleo.Models;
 
-namespace testeleo.Data;
-
-public class ApplicationDbContext : IdentityDbContext
+namespace testeleo.Data
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options)
+    public class ApplicationDbContext : IdentityDbContext
     {
-    }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
 
-    public DbSet<Student> Students { get; set; } = default!;
-    public DbSet<Premium> Premiums { get; set; } = default!;
+        public DbSet<Student> Students { get; set; } = default!;
+        public DbSet<Premium> Premiums { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // Garante que não existam dois estudantes com o mesmo e-mail
+            builder.Entity<Student>()
+                .HasIndex(s => s.Email)
+                .IsUnique();
+        }
+    }
 }
