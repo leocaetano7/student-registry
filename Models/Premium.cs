@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace testeleo.Models
 {
-    public class Premium
+    public class Premium : IValidatableObject
     {
         public int Id { get; set; }
 
@@ -21,5 +22,13 @@ namespace testeleo.Models
         public int StudentId { get; set; }
 
         public Student? Student { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (EndDate < StartDate)
+            {
+                yield return new ValidationResult("A data de término não pode ser menor que a data de início.", new[] { nameof(EndDate) });
+            }
+        }
     }
 }
