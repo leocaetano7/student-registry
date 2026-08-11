@@ -13,7 +13,7 @@ Sistema de gerenciamento de estudantes e planos Premium desenvolvido em ASP.NET 
 1. Certifique-se de ter o **SDK do .NET** instalado.
 2. Clone o repositório:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/leocaetano7/student-registry
    ```
 3. Acesse a pasta do projeto:
    ```bash
