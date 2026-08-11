@@ -1,0 +1,22 @@
+﻿## .gitignore para projetos .NET
+
+# Build results
+bin/
+obj/
+out/
+
+# Rider / JetBrains
+.idea/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Banco de dados local
+*.db
+*.db-shm
+*.db-wal
+
+# User secrets
+appsettings.*.local.json

@@ -2,15 +2,14 @@
    1. TEMA
    ========================================================================== */
 :root {
-    --bg-space: #070913;           /* Espaço profundo (quase preto azulado) */
-    --bg-nebula: #0b112c;          /* Fundo secundário / base dos containers */
-    --neon-blue: #00f2fe;          /* Ciano neon hiper-espacial */
-    --neon-purple: #9b51e0;        /* Roxo nebulosa energética */
-    --text-cosmic: #f1f5f9;        /* Branco estelar (alta legibilidade) */
-    --text-stardust: #94a3b8;      /* Cinza poeira estelar para textos secundários */
-    --glass-surface: rgba(15, 23, 42, 0.65); /* Placas translúcidas estilo cockpit */
-    --glass-border: rgba(0, 242, 254, 0.15); /* Bordas com brilho neon sutil */
-    --radius-cyber: 10px;          /* Ângulos semi-arredondados futuristas */
+    --bg-space: #070913;
+    --neon-blue: #00f2fe;
+    --neon-purple: #9b51e0;
+    --text-stardust: #94a3b8;
+    --text-cosmic: #ffffff;        /* CORRIGIDO: Criada a variável com a cor branca */
+    --glass-surface: rgba(15, 23, 42, 0.65);
+    --glass-border: rgba(0, 242, 254, 0.15);
+    --radius-cyber: 10px;
     --glow-cyan: 0 0 15px rgba(0, 242, 254, 0.35);
     --glow-purple: 0 0 15px rgba(155, 81, 224, 0.35);
 }
@@ -37,6 +36,10 @@ body {
     color: var(--text-cosmic);
     margin-bottom: 70px;
     -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-cosmic) !important;
 }
 
 /* ==========================================================================
