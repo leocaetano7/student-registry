@@ -1,9 +1,73 @@
 ﻿@page
 @model IndexModel
+
 @{
     ViewData["Title"] = "Home page";
+    var currentCulture = System.Globalization.CultureInfo.CurrentUICulture.Name;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Seja bem vindo</h1>
+<link rel="stylesheet" href="https://jsdelivr.net">
+
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light py-5">
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden bg-white text-center">
+                <div class="bg-primary py-2 w-100" style="background: linear-gradient(90deg, #0d6efd, #0dcaf0) !important;"></div>
+
+                <div class="card-body p-5">
+                    <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-4" style="width: 72px; height: 72px;">
+                        <i class="bi bi-translate fs-2"></i>
+                    </div>
+
+                    <h1 class="h2 fw-bold text-dark mb-2">@Localizer["BoasVindas"]</h1>
+                    <p class="text-muted small mb-5">@Localizer["IndexSubtitle"]</p>
+
+                    <div class="bg-light rounded-3 p-4 border border-light">
+                        <label class="form-label text-muted small fw-bold text-uppercase mb-3 d-block" style="letter-spacing: 0.8px;">
+                            @Localizer["SelectLanguageLabel"]
+                        </label>
+
+                        <form id="selectLanguage" method="post" asp-page-handler="SetLanguage" asp-route-returnUrl="@(Request.Path + Request.QueryString)">
+                            <div class="d-grid gap-2">
+
+                                <!-- Botão Português -->
+                                <button type="submit" name="culture" value="pt-BR"
+                                   class="btn d-flex align-items-center justify-content-between px-4 py-3 border rounded-3 text-start shadow-sm transition-all @(currentCulture == "pt-BR" ? "btn-primary text-white border-primary" : "btn-white bg-white text-dark")">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="fs-4">🇧🇷</span>
+                                        <span class="fw-semibold">@Localizer["LanguagePortuguese"]</span>
+                                    </div>
+                                    @if (currentCulture == "pt-BR") { <span class="badge bg-white bg-opacity-20 rounded-pill small">@Localizer["ActiveLabel"]</span> }
+                                </button>
+
+                                <button type="submit" name="culture" value="en-US"
+                                   class="btn d-flex align-items-center justify-content-between px-4 py-3 border rounded-3 text-start shadow-sm transition-all @(currentCulture == "en-US" ? "btn-dark text-white border-dark" : "btn-white bg-white text-dark")">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="fs-4">🇺🇸</span>
+                                        <span class="fw-semibold">@Localizer["LanguageEnglish"]</span>
+                                    </div>
+                                    @if (currentCulture == "en-US") { <span class="badge bg-white bg-opacity-20 rounded-pill small">@Localizer["ActiveLabel"]</span> }
+                                </button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="card-footer bg-light border-0 py-3 text-muted small">
+                    &copy; 2026 testeleo &bull; @Localizer["IndexFooter"]
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
+
+<style>
+    .transition-all { transition: all 0.2s ease-in-out; }
+    .btn:hover { transform: translateY(-1px); }
+    .shadow-lg { box-shadow: 0 1rem 3rem rgba(0,0,0,.125) !important; }
+    .rounded-4 { border-radius: 1rem !important; }
+</style>

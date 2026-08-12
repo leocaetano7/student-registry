@@ -1,13 +1,13 @@
-@page
+﻿@page
 @model testeleo.Pages_Premiums.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = Localizer["PremiumEditTitle"];
 }
 
-<h1>Edit</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>Premium</h4>
+<h4>@Localizer["PremiumSectionTitle"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,7 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Premium.Id" />
             <div class="form-group">
-<span class="text-danger">*</span>
+                <span class="text-danger">*</span>
                 <label asp-for="Premium.Title" class="control-label"></label>
                 <input asp-for="Premium.Title" class="form-control" aria-required="true"/>
                 <span asp-validation-for="Premium.Title" class="text-danger"></span>
@@ -31,20 +31,20 @@
                 <span asp-validation-for="Premium.EndDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-<span class="text-danger">*</span>
+                <span class="text-danger">*</span>
                 <label asp-for="Premium.StudentId" class="control-label"></label>
                 <select asp-for="Premium.StudentId" class="form-control" asp-items="ViewBag.StudentId" aria-required="true"></select>
                 <span asp-validation-for="Premium.StudentId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="@Localizer["ActionSave"]" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">@Localizer["BackToList"]</a>
 </div>
 
 @section Scripts {

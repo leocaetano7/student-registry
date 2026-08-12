@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="0" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>Demonstração de Conhecimento</value>
+  </data>
+  <data name="NavHome" xml:space="preserve">
+    <value>Início</value>
+  </data>
+  <data name="NavStudents" xml:space="preserve">
+    <value>Estudantes</value>
+  </data>
+  <data name="NavPremiums" xml:space="preserve">
+    <value>Prêmios</value>
+  </data>
+  <data name="NavPrivacy" xml:space="preserve">
+    <value>Privacidade</value>
+  </data>
+  <data name="SelectLanguageLabel" xml:space="preserve">
+    <value>Selecione o Idioma</value>
+  </data>
+  <data name="FooterText" xml:space="preserve">
+    <value>Demonstração de Conhecimento</value>
+  </data>
+  <data name="ActionCreate" xml:space="preserve">
+    <value>Criar</value>
+  </data>
+  <data name="ActionCreateNew" xml:space="preserve">
+    <value>Criar Novo</value>
+  </data>
+  <data name="ActionEdit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="ActionDetails" xml:space="preserve">
+    <value>Detalhes</value>
+  </data>
+  <data name="ActionDelete" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="ActionSave" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Voltar para a lista</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>Tem certeza de que deseja excluir este registro?</value>
+  </data>
+  <data name="RequiredFieldMark" xml:space="preserve">
+    <value>Campo obrigatório</value>
+  </data>
+  <data name="StudentsPageTitle" xml:space="preserve">
+    <value>Estudantes</value>
+  </data>
+  <data name="StudentSectionTitle" xml:space="preserve">
+    <value>Estudante</value>
+  </data>
+  <data name="StudentCreateTitle" xml:space="preserve">
+    <value>Novo Estudante</value>
+  </data>
+  <data name="StudentEditTitle" xml:space="preserve">
+    <value>Editar Estudante</value>
+  </data>
+  <data name="StudentDetailsTitle" xml:space="preserve">
+    <value>Detalhes do Estudante</value>
+  </data>
+  <data name="StudentDeleteTitle" xml:space="preserve">
+    <value>Excluir Estudante</value>
+  </data>
+  <data name="PremiumsPageTitle" xml:space="preserve">
+    <value>Prêmios</value>
+  </data>
+  <data name="PremiumSectionTitle" xml:space="preserve">
+    <value>Prêmio</value>
+  </data>
+  <data name="PremiumCreateTitle" xml:space="preserve">
+    <value>Novo Prêmio</value>
+  </data>
+  <data name="PremiumEditTitle" xml:space="preserve">
+    <value>Editar Prêmio</value>
+  </data>
+  <data name="PremiumDetailsTitle" xml:space="preserve">
+    <value>Detalhes do Prêmio</value>
+  </data>
+  <data name="PremiumDeleteTitle" xml:space="preserve">
+    <value>Excluir Prêmio</value>
+  </data>
+  <data name="BoasVindas" xml:space="preserve">
+    <value>Bem-vindo ao testeleo!</value>
+  </data>
+  <data name="IndexSubtitle" xml:space="preserve">
+    <value>Projeto testeleo configurado com múltiplos idiomas com sucesso.</value>
+  </data>
+  <data name="IndexFooter" xml:space="preserve">
+    <value>Build local concluído com sucesso</value>
+  </data>
+  <data name="LanguagePortuguese" xml:space="preserve">
+    <value>Português (PT-BR)</value>
+  </data>
+  <data name="LanguageEnglish" xml:space="preserve">
+    <value>Inglês (EN-US)</value>
+  </data>
+  <data name="ActiveLabel" xml:space="preserve">
+    <value>Ativo</value>
+  </data>
+  <data name="PrivacyTitle" xml:space="preserve">
+    <value>Política de Privacidade</value>
+  </data>
+  <data name="PrivacyBody" xml:space="preserve">
+    <value>A sua privacidade é muito importante para nós. Esta Política de Privacidade explica, de forma clara e rápida, como coletamos, usamos e protegemos os seus dados pessoais quando você visita o nosso site.</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="ErrorHeading" xml:space="preserve">
+    <value>Ocorreu um erro ao processar sua solicitação.</value>
+  </data>
+  <data name="ErrorRequestId" xml:space="preserve">
+    <value>ID da Solicitação:</value>
+  </data>
+  <data name="ErrorDevModeTitle" xml:space="preserve">
+    <value>Modo de Desenvolvimento</value>
+  </data>
+  <data name="ErrorDevModeText1" xml:space="preserve">
+    <value>Alternar para o ambiente Development exibe informações detalhadas sobre o erro ocorrido.</value>
+  </data>
+  <data name="ErrorDevModeText2" xml:space="preserve">
+    <value>O ambiente Development não deve ser habilitado em aplicações publicadas, pois pode expor informações sensíveis das exceções aos usuários finais. Para depuração local, habilite o ambiente Development definindo a variável de ambiente ASPNETCORE_ENVIRONMENT como Development e reiniciando a aplicação.</value>
+  </data>
+  <data name="Student_Name" xml:space="preserve">
+    <value>Nome Completo</value>
+  </data>
+  <data name="Student_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Student_NameRequired" xml:space="preserve">
+    <value>Informe o nome</value>
+  </data>
+  <data name="Student_NameMaxLength" xml:space="preserve">
+    <value>O nome deve conter até 80 caracteres</value>
+  </data>
+  <data name="Student_NameMinLength" xml:space="preserve">
+    <value>O nome deve conter pelo menos 5 caracteres</value>
+  </data>
+  <data name="Student_EmailRequired" xml:space="preserve">
+    <value>Informe o e-mail</value>
+  </data>
+  <data name="Student_EmailInvalid" xml:space="preserve">
+    <value>E-mail inválido</value>
+  </data>
+  <data name="Premium_Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Premium_StartDate" xml:space="preserve">
+    <value>Data de Início</value>
+  </data>
+  <data name="Premium_EndDate" xml:space="preserve">
+    <value>Data de Término</value>
+  </data>
+  <data name="Premium_Student" xml:space="preserve">
+    <value>Estudante</value>
+  </data>
+  <data name="Premium_TitleRequired" xml:space="preserve">
+    <value>O título é obrigatório</value>
+  </data>
+  <data name="Premium_TitleMaxLength" xml:space="preserve">
+    <value>O título deve ter no máximo 80 caracteres</value>
+  </data>
+  <data name="Premium_StudentRequired" xml:space="preserve">
+    <value>O estudante é obrigatório</value>
+  </data>
+  <data name="Premium_EndDateBeforeStart" xml:space="preserve">
+    <value>A data de término não pode ser anterior à data de início.</value>
+  </data>
+</root>

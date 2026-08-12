@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,16 +8,16 @@ namespace testeleo.Pages_Premiums
 {
     public class CreateModel : PageModel
     {
-        private readonly testeleo.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CreateModel(testeleo.Data.ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email");
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email");
             return Page();
         }
 
@@ -33,6 +29,10 @@ namespace testeleo.Pages_Premiums
         {
             if (!ModelState.IsValid)
             {
+                // Bug corrigido: ao reexibir a página por erro de validação, o
+                // <select> de estudante ficava vazio porque ViewData["StudentId"]
+                // só era preenchido em OnGet(), nunca em OnPostAsync().
+                ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", Premium.StudentId);
                 return Page();
             }
 

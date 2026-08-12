@@ -1,24 +1,29 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.Extensions.Localization;
+using testeleo;
 
 namespace testeleo.Models
 {
     public class Premium : IValidatableObject
     {
+        [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "O título é obrigatório")]
-        [StringLength(80, ErrorMessage = "O título deve ter no máximo 80 caracteres")]
+        [Required(ErrorMessage = "Premium_TitleRequired")]
+        [StringLength(80, ErrorMessage = "Premium_TitleMaxLength")]
+        [Display(Name = "Premium_Title")]
         public string Title { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
+        [Display(Name = "Premium_StartDate")]
         public DateTime StartDate { get; set; }
 
         [DataType(DataType.Date)]
+        [Display(Name = "Premium_EndDate")]
         public DateTime EndDate { get; set; }
 
-        [Required(ErrorMessage = "O estudante é obrigatório")]
+        [Required(ErrorMessage = "Premium_StudentRequired")]
+        [Display(Name = "Premium_Student")]
         public int StudentId { get; set; }
 
         public Student? Student { get; set; }
@@ -27,7 +32,12 @@ namespace testeleo.Models
         {
             if (EndDate < StartDate)
             {
-                yield return new ValidationResult("A data de término não pode ser menor que a data de início.", new[] { nameof(EndDate) });
+                var localizer = validationContext.GetService(typeof(IStringLocalizer<SharedResource>))
+                    as IStringLocalizer<SharedResource>;
+                var message = localizer?["Premium_EndDateBeforeStart"].Value
+                              ?? "A data de término não pode ser anterior à data de início.";
+
+                yield return new ValidationResult(message, new[] { nameof(EndDate) });
             }
         }
     }

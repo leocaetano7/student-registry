@@ -1,14 +1,14 @@
-@page
+﻿@page
 @model testeleo.Pages_Premiums.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Localizer["PremiumDetailsTitle"];
 }
 
-<h1>Details</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>Premium</h4>
+    <h4>@Localizer["PremiumSectionTitle"]</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -38,6 +38,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Premium.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Premium.Id">@Localizer["ActionEdit"]</a> |
+    <a asp-page="./Index">@Localizer["BackToList"]</a>
 </div>

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using testeleo.Data;
 using testeleo.Models;
 
-namespace testeleo.Pages_students
+namespace testeleo.Pages_Students
 {
     public class IndexModel : PageModel
     {

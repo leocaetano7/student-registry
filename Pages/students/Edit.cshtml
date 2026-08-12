@@ -1,13 +1,13 @@
-@page
-@model testeleo.Pages_students.EditModel
+﻿@page
+@model testeleo.Pages_Students.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = Localizer["StudentEditTitle"];
 }
 
-<h1>Edit</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>Student</h4>
+<h4>@Localizer["StudentSectionTitle"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,26 +15,26 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Student.Id" />
             <div class="form-group">
-<span class="text-danger">*</span>
+                <span class="text-danger">*</span>
                 <label asp-for="Student.Name" class="control-label"></label>
                 <input asp-for="Student.Name" class="form-control" aria-required="true"/>
                 <span asp-validation-for="Student.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-<span class="text-danger">*</span>
+                <span class="text-danger">*</span>
                 <label asp-for="Student.Email" class="control-label"></label>
                 <input asp-for="Student.Email" class="form-control" aria-required="true"/>
                 <span asp-validation-for="Student.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="@Localizer["ActionSave"]" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">@Localizer["BackToList"]</a>
 </div>
 
 @section Scripts {

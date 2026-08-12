@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using testeleo.Data;
 using testeleo.Models;
 
-namespace testeleo.Pages_students
+namespace testeleo.Pages_Students
 {
     public class CreateModel : PageModel
     {
@@ -27,7 +27,7 @@ namespace testeleo.Pages_students
         [BindProperty]
         public Student Student { get; set; } = default!;
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)

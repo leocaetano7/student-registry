@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,9 +9,9 @@ namespace testeleo.Pages_Premiums
 {
     public class EditModel : PageModel
     {
-        private readonly testeleo.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EditModel(testeleo.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -30,13 +26,13 @@ namespace testeleo.Pages_Premiums
                 return NotFound();
             }
 
-            var premium =  await _context.Premiums.FirstOrDefaultAsync(m => m.Id == id);
+            var premium = await _context.Premiums.FirstOrDefaultAsync(m => m.Id == id);
             if (premium == null)
             {
                 return NotFound();
             }
             Premium = premium;
-           ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email");
+            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", Premium.StudentId);
             return Page();
         }
 
@@ -46,6 +42,9 @@ namespace testeleo.Pages_Premiums
         {
             if (!ModelState.IsValid)
             {
+                // Mesmo bug de Create.cshtml.cs: o <select> de estudante ficava
+                // vazio ao reexibir o formulário por erro de validação.
+                ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", Premium.StudentId);
                 return Page();
             }
 

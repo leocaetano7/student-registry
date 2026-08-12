@@ -4,10 +4,10 @@
 
 namespace testeleo.Data.Migrations
 {
-    /// <inheritdoc />
+
     public partial class EmailEstudanteUnico : Migration
     {
-        /// <inheritdoc />
+
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateIndex(
@@ -17,7 +17,7 @@ namespace testeleo.Data.Migrations
                 unique: true);
         }
 
-        /// <inheritdoc />
+
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropIndex(

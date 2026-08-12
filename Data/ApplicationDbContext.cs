@@ -18,7 +18,7 @@ namespace testeleo.Data
         {
             base.OnModelCreating(builder);
 
-            // Garante que não existam dois estudantes com o mesmo e-mail
+            
             builder.Entity<Student>()
                 .HasIndex(s => s.Email)
                 .IsUnique();
