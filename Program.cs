@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using testeleo.Data;
 using testeleo;
 
@@ -21,7 +20,7 @@ builder.Services.AddLocalization(options => options.ResourcesPath = "Resources")
 builder.Services.AddControllers();
 
 // ==========================================
-// 2. BANCO DE DADOS E IDENTITY (RESOLVIDO DEFINITIVAMENTE)
+// 2. BANCO DE DADOS 
 // ==========================================
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -29,25 +28,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddRazorPages(options => 
-{ 
-    options.Conventions.AuthorizeFolder("/Students"); 
-    options.Conventions.AuthorizeFolder("/Premiums"); 
-})
-.AddViewLocalization()
-.AddDataAnnotationsLocalization(options =>
-{
- 
-    options.DataAnnotationLocalizerProvider = (_, factory) => factory.Create(typeof(SharedResource));
-});
+builder.Services.AddRazorPages()
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization(options =>
+    {
+        options.DataAnnotationLocalizerProvider = (_, factory) => factory.Create(typeof(SharedResource));
+    });
 
 var app = builder.Build();
 
 // ==========================================
-// 3. PIPELINE DE REQUISIÇÕES (MIDDLEWARES)
+// 3. PIPELINE DE REQUISIÇÕES c
 // ==========================================
 
 app.UseRequestLocalization();
@@ -65,11 +57,9 @@ else
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
-
 app.MapControllers();
 app.MapRazorPages().WithStaticAssets();
 
