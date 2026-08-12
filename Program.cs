@@ -12,8 +12,8 @@ var supportedCultures = new[] { "pt-BR", "en-US" };
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     options.SetDefaultCulture("pt-BR")
-           .AddSupportedCultures(supportedCultures)
-           .AddSupportedUICultures(supportedCultures);
+        .AddSupportedCultures(supportedCultures)
+        .AddSupportedUICultures(supportedCultures);
 });
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -24,10 +24,11 @@ builder.Services.AddControllers();
 // ==========================================
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddRazorPages()
     .AddViewLocalization()
@@ -39,7 +40,7 @@ builder.Services.AddRazorPages()
 var app = builder.Build();
 
 // ==========================================
-// 3. PIPELINE DE REQUISIÇÕES c
+// 3. PIPELINE DE REQUISIÇÕES (MIDDLEWARES)
 // ==========================================
 
 app.UseRequestLocalization();
@@ -55,12 +56,12 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapControllers();
-app.MapRazorPages().WithStaticAssets();
+app.MapRazorPages();
 
 app.Run();
