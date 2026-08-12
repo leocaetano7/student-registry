@@ -30,15 +30,22 @@ namespace testeleo.Pages_Students
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return Page();
+
+            try
             {
-                return Page();
+                _context.Students.Add(Student);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
+            catch (Microsoft.EntityFrameworkCore.DbUpdateException)
+            {
+                ModelState.AddModelError(string.Empty, "Ocorreu um erro ao salvar o estudante. Verifique se os dados (como e-mail) já estão cadastrados.");
+                return Page();
+            } 
+        } 
+    } 
+} 
+        
 
-            _context.Students.Add(Student);
-            await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
-        }
-    }
-}

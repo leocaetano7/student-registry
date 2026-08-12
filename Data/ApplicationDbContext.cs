@@ -14,14 +14,16 @@ namespace testeleo.Data
         public DbSet<Student> Students { get; set; } = default!;
         public DbSet<Premium> Premiums { get; set; } = default!;
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(modelBuilder);
 
-            
-            builder.Entity<Student>()
-                .HasIndex(s => s.Email)
-                .IsUnique();
-        }
-    }
+            modelBuilder.Entity<Premium>()
+                .HasOne(p => p.Student)
+                .WithMany(s => s.Premiums)
+                .HasForeignKey(p => p.StudentId)
+                .OnDelete(DeleteBehavior.Restrict);
+        } 
+    } 
 }
+
