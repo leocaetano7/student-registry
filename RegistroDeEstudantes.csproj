@@ -4,7 +4,7 @@
         <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <UserSecretsId>aspnet-StudentRegistry-b7ea4f97-9d14-4bb2-814c-91fd5b5acbee</UserSecretsId>
+        <UserSecretsId>aspnet-RegistroDeEstudantes-b7ea4f97-9d14-4bb2-814c-91fd5b5acbee</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>

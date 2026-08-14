@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace StudentRegistry.Data.Migrations
+namespace RegistroDeEstudantes.Data.Migrations
 {
     /// <inheritdoc />
     public partial class UpdateCascadeToRestrict : Migration

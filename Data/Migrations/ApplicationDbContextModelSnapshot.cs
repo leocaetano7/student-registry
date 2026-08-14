@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using StudentRegistry.Data;
+using RegistroDeEstudantes.Data;
 
 #nullable disable
 
-namespace StudentRegistry.Data.Migrations
+namespace RegistroDeEstudantes.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -213,7 +213,7 @@ namespace StudentRegistry.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("StudentRegistry.Models.Premium", b =>
+            modelBuilder.Entity("RegistroDeEstudantes.Models.Premium", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -240,7 +240,7 @@ namespace StudentRegistry.Data.Migrations
                     b.ToTable("Premiums");
                 });
 
-            modelBuilder.Entity("StudentRegistry.Models.Student", b =>
+            modelBuilder.Entity("RegistroDeEstudantes.Models.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -314,9 +314,9 @@ namespace StudentRegistry.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("StudentRegistry.Models.Premium", b =>
+            modelBuilder.Entity("RegistroDeEstudantes.Models.Premium", b =>
                 {
-                    b.HasOne("StudentRegistry.Models.Student", "Student")
+                    b.HasOne("RegistroDeEstudantes.Models.Student", "Student")
                         .WithMany("Premiums")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -325,7 +325,7 @@ namespace StudentRegistry.Data.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("StudentRegistry.Models.Student", b =>
+            modelBuilder.Entity("RegistroDeEstudantes.Models.Student", b =>
                 {
                     b.Navigation("Premiums");
                 });

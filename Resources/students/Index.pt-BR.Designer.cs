@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentRegistry.Resources.Students {
+namespace RegistroDeEstudantes.Resources.Students {
     using System;
     
     
@@ -38,7 +38,7 @@ namespace StudentRegistry.Resources.Students {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StudentRegistry.Resources.Students.Index.pt-BR", typeof(Index_pt_BR).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RegistroDeEstudantes.Resources.Students.Index.pt-BR", typeof(Index_pt_BR).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

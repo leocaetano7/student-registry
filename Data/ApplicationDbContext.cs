@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity; 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using StudentRegistry.Models;
+using RegistroDeEstudantes.Models;
 
-namespace StudentRegistry.Data
+namespace RegistroDeEstudantes.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

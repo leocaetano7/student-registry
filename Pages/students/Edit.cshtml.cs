@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using StudentRegistry.Data;
-using StudentRegistry.Models;
+using RegistroDeEstudantes.Data;
+using RegistroDeEstudantes.Models;
 
-namespace StudentRegistry.Pages_Students
+namespace RegistroDeEstudantes.Pages_Students
 {
     public class EditModel : PageModel
     {
-        private readonly StudentRegistry.Data.ApplicationDbContext _context;
+        private readonly RegistroDeEstudantes.Data.ApplicationDbContext _context;
 
-        public EditModel(StudentRegistry.Data.ApplicationDbContext context)
+        public EditModel(RegistroDeEstudantes.Data.ApplicationDbContext context)
         {
             _context = context;
         }

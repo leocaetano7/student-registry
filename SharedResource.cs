@@ -1,4 +1,4 @@
-namespace StudentRegistry;
+namespace RegistroDeEstudantes;
 
 
 public class SharedResource

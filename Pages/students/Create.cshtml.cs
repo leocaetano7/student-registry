@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using StudentRegistry.Data;
-using StudentRegistry.Models;
+using RegistroDeEstudantes.Data;
+using RegistroDeEstudantes.Models;
 
-namespace StudentRegistry.Pages_Students
+namespace RegistroDeEstudantes.Pages_Students
 {
     public class CreateModel : PageModel
     {
-        private readonly StudentRegistry.Data.ApplicationDbContext _context;
+        private readonly RegistroDeEstudantes.Data.ApplicationDbContext _context;
 
-        public CreateModel(StudentRegistry.Data.ApplicationDbContext context)
+        public CreateModel(RegistroDeEstudantes.Data.ApplicationDbContext context)
         {
             _context = context;
         }

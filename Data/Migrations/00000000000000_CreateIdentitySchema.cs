@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace StudentRegistry.Data.Migrations
+namespace RegistroDeEstudantes.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

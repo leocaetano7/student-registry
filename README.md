@@ -1,4 +1,4 @@
-﻿# Student Registry 🚀
+﻿# Registro de Estudantes 🚀
 
 Sistema de gerenciamento de estudantes e planos Premium desenvolvido em ASP.NET Core Razor Pages com banco de dados SQLite.
 
