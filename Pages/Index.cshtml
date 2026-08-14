@@ -25,7 +25,7 @@
                         <form id="selectLanguage" method="post" asp-page-handler="SetLanguage" asp-route-returnUrl="@(Request.Path + Request.QueryString)">
                             <div class="d-grid gap-2">
 
-                                <!-- Botão Português -->
+
                                 <button type="submit" name="culture" value="pt-BR"
                                    class="btn d-flex align-items-center justify-content-between px-4 py-3 border rounded-3 text-start shadow-sm transition-all @(currentCulture == "pt-BR" ? "btn-primary text-white border-primary" : "btn-white bg-white text-dark")">
                                     <div class="d-flex align-items-center gap-3">

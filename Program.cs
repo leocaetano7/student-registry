@@ -51,7 +51,7 @@ builder.Services.AddRazorPages(options =>
 var app = builder.Build();
 
 // ==========================================
-// 3. PIPELINE DE REQUISIÇÕES (MIDDLEWARES)
+// 3. PIPELINE DE REQUISIÇÕES 
 // ==========================================
 
 app.UseRequestLocalization();
