@@ -56,7 +56,7 @@
 
                 <!-- Seletor de Idiomas -->
                 <div class="me-3" style="max-width: 190px; min-width: 160px;">
-                    <form asp-controller="Culture" asp-action="SetLanguage" asp-route-returnUrl="@returnUrl" method="post">
+                    <form asp-page="/Index" asp-page-handler="SetLanguage" asp-route-returnUrl="@returnUrl" method="post">
                         <label class="visually-hidden" for="cultureSelect">@Localizer["SelectLanguageLabel"]</label>
                         <select id="cultureSelect" name="culture"
                                 onchange="this.form.submit();"

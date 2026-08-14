@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using testeleo.Data;
 using testeleo;
 
@@ -17,7 +18,6 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-builder.Services.AddControllers();
 
 // ==========================================
 // 2. BANCO DE DADOS 
@@ -30,7 +30,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddRazorPages()
+// ==========================================
+// 3. IDENTITY
+// ==========================================
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+        options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddRazorPages(options =>
+    {
+        options.Conventions.AuthorizeFolder("/Students");
+        options.Conventions.AuthorizeFolder("/Premiums");
+    })
     .AddViewLocalization()
     .AddDataAnnotationsLocalization(options =>
     {
@@ -60,6 +71,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

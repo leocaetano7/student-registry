@@ -19,6 +19,10 @@ namespace testeleo.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Student>()
+                .HasIndex(s => s.Email)
+                .IsUnique();
+
             modelBuilder.Entity<Premium>()
                 .HasOne(p => p.Student)
                 .WithMany(s => s.Premiums)
