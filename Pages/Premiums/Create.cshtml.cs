@@ -17,22 +17,29 @@ namespace RegistroDeEstudantes.Pages_Premiums
 
         public IActionResult OnGet()
         {
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email");
+            ViewData["StudentId"] = new SelectList(
+                _context.Students,
+                "Id",
+                "Email"
+            );
+
             return Page();
         }
 
         [BindProperty]
         public Premium Premium { get; set; } = default!;
 
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                // Bug corrigido: ao reexibir a página por erro de validação, o
-                // <select> de estudante ficava vazio porque ViewData["StudentId"]
-                // só era preenchido em OnGet(), nunca em OnPostAsync().
-                ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", Premium.StudentId);
+                ViewData["StudentId"] = new SelectList(
+                    _context.Students,
+                    "Id",
+                    "Email",
+                    Premium.StudentId
+                );
+
                 return Page();
             }
 

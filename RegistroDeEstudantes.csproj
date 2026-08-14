@@ -15,7 +15,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.10" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.10" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.10" PrivateAssets="all" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.10">
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,12 +25,11 @@
         <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.12" />
     </ItemGroup>
 
-    <!--
-      Não há mais ItemGroup de EmbeddedResource/Compile "Designer" aqui de propósito:
-      o SDK do ASP.NET Core já inclui automaticamente qualquer *.resx como recurso
-      incorporado. Usamos apenas IStringLocalizer/IHtmlLocalizer<SharedResource>
-      (acesso por chave/indexador), então não precisamos gerar classes fortemente
-      tipadas (Designer.cs) para Resources/SharedResource.*.resx.
-    -->
+    <ItemGroup>
+        <Compile Remove="RegistroDeEstudantes.Tests/**/*.cs" />
+        <Compile Include="RegistroDeEstudantes.Tests\StudentTests.cs" />
+        <EmbeddedResource Remove="RegistroDeEstudantes.Tests/**/*.resx" />
+        <None Remove="RegistroDeEstudantes.Tests/**" />
+    </ItemGroup>
 
 </Project>

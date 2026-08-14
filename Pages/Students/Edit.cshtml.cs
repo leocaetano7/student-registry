@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RegistroDeEstudantes.Data;
 using RegistroDeEstudantes.Models;
@@ -13,14 +8,14 @@ namespace RegistroDeEstudantes.Pages_Students
 {
     public class EditModel : PageModel
     {
-        private readonly RegistroDeEstudantes.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EditModel(RegistroDeEstudantes.Data.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context)
         {
             _context = context;
         }
-
-        [BindProperty]
+        
+        
         public Student Student { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -30,48 +25,51 @@ namespace RegistroDeEstudantes.Pages_Students
                 return NotFound();
             }
 
-            var student =  await _context.Students.FirstOrDefaultAsync(m => m.Id == id);
+            var student = await _context.Students
+                .FirstOrDefaultAsync(s => s.Id == id);
+
             if (student == null)
             {
                 return NotFound();
             }
+
             Student = student;
+
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var studentToUpdate = await _context.Students.FindAsync(id);
+
+            if (studentToUpdate == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Student).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync(
+                    studentToUpdate,
+                    "Student",
+                    s => s.Name,
+                    s => s.Email))
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(Student.Id))
+                try
                 {
-                    return NotFound();
+                    await _context.SaveChangesAsync();
+                    return RedirectToPage("./Index");
                 }
-                else
+                catch (DbUpdateException)
                 {
-                    throw;
+                    ModelState.AddModelError(
+                        string.Empty,
+                        "Não foi possível salvar as alterações."
+                    );
                 }
             }
 
-            return RedirectToPage("./Index");
-        }
-
-        private bool StudentExists(int id)
-        {
-            return _context.Students.Any(e => e.Id == id);
+            Student = studentToUpdate;
+            
+            return Page();
         }
     }
 }

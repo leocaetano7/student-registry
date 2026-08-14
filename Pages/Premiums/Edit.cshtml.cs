@@ -16,7 +16,6 @@ namespace RegistroDeEstudantes.Pages_Premiums
             _context = context;
         }
 
-        [BindProperty]
         public Premium Premium { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -26,47 +25,70 @@ namespace RegistroDeEstudantes.Pages_Premiums
                 return NotFound();
             }
 
-            var premium = await _context.Premiums.FirstOrDefaultAsync(m => m.Id == id);
+            var premium = await _context.Premiums
+                .FirstOrDefaultAsync(p => p.Id == id);
+
             if (premium == null)
             {
                 return NotFound();
             }
+
             Premium = premium;
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", Premium.StudentId);
+
+            ViewData["StudentId"] = new SelectList(
+                _context.Students,
+                "Id",
+                "Email",
+                Premium.StudentId
+            );
+
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var premiumToUpdate = await _context.Premiums.FindAsync(id);
+
+            if (premiumToUpdate == null)
             {
-                // Mesmo bug de Create.cshtml.cs: o <select> de estudante ficava
-                // vazio ao reexibir o formulário por erro de validação.
-                ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Email", Premium.StudentId);
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Premium).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync(
+                premiumToUpdate,
+                "Premium",
+                p => p.Title,
+                p => p.StartDate,
+                p => p.EndDate,
+                p => p.StudentId))
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PremiumExists(Premium.Id))
+                try
                 {
-                    return NotFound();
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToPage("./Index");
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
+                    if (!PremiumExists(id))
+                    {
+                        return NotFound();
+                    }
+
                     throw;
                 }
             }
 
-            return RedirectToPage("./Index");
+            Premium = premiumToUpdate;
+
+            ViewData["StudentId"] = new SelectList(
+                _context.Students,
+                "Id",
+                "Email",
+                Premium.StudentId
+            );
+
+            return Page();
         }
 
         private bool PremiumExists(int id)

@@ -28,8 +28,9 @@ namespace RegistroDeEstudantes.Pages_Premiums
                 return NotFound();
             }
 
-            var premium = await _context.Premiums.FirstOrDefaultAsync(m => m.Id == id);
-
+            var premium = await _context.Premiums
+                .Include(p => p.Student)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (premium is not null)
             {
                 Premium = premium;

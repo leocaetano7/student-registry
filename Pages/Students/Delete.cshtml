@@ -27,8 +27,10 @@
     </dl>
 
     <form method="post">
-        <input type="hidden" asp-for="Student.Id" />
-        <input type="submit" value="@Localizer["ActionDelete"]" class="btn btn-danger" /> |
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        <input type="hidden" asp-for="Student.Id"/>
+        <input type="submit" value="@Localizer["ActionDelete"]" class="btn btn-danger"/> |
         <a asp-page="./Index">@Localizer["BackToList"]</a>
     </form>
 </div>

@@ -229,4 +229,7 @@
   <data name="Premium_EndDateBeforeStart" xml:space="preserve">
     <value>A data de término não pode ser anterior à data de início.</value>
   </data>
+  <data name="StudentDeleteWithPremiumError" xml:space="preserve">
+    <value>Não é possível excluir este aluno porque ele possui planos Premium associados.</value>
+  </data>
 </root>
