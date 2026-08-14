@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace testeleo.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
 
     public partial class EmailEstudanteUnico : Migration

@@ -1,4 +1,4 @@
-namespace testeleo;
+namespace StudentRegistry;
 
 
 public class SharedResource

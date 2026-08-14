@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace testeleo.Models;
+namespace StudentRegistry.Models;
 
 public class Student
 {

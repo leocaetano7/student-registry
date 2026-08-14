@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using testeleo.Data;
+using StudentRegistry.Data;
 
 #nullable disable
 
-namespace testeleo.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20260811143823_EmailEstudanteUnico")]
@@ -216,7 +216,7 @@ namespace testeleo.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("testeleo.Models.Premium", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Premium", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -243,7 +243,7 @@ namespace testeleo.Data.Migrations
                     b.ToTable("Premiums");
                 });
 
-            modelBuilder.Entity("testeleo.Models.Student", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -317,9 +317,9 @@ namespace testeleo.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("testeleo.Models.Premium", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Premium", b =>
                 {
-                    b.HasOne("testeleo.Models.Student", "Student")
+                    b.HasOne("StudentRegistry.Models.Student", "Student")
                         .WithMany("Premiums")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -328,7 +328,7 @@ namespace testeleo.Data.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("testeleo.Models.Student", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Student", b =>
                 {
                     b.Navigation("Premiums");
                 });

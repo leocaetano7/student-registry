@@ -10,20 +10,24 @@ Sistema de gerenciamento de estudantes e planos Premium desenvolvido em ASP.NET 
 
 ## 🏃‍♂️ Como Rodar o Projeto Localmente
 
-1. Certifique-se de ter o **SDK do .NET** instalado.
+1. Certifique-se de ter o **SDK do .NET 10** instalado.
 2. Clone o repositório:
    ```bash
    git clone https://github.com/leocaetano7/student-registry
    ```
 3. Acesse a pasta do projeto:
    ```bash
-   cd testeleo
+   cd student-registry
    ```
-4. Atualize o banco de dados:
+4. Instale a ferramenta `dotnet-ef` (necessária para aplicar as migrations; só precisa ser feito uma vez por máquina):
+   ```bash
+   dotnet tool install --global dotnet-ef
+   ```
+5. Atualize o banco de dados:
    ```bash
    dotnet ef database update
    ```
-5. Execute a aplicação:
+6. Execute a aplicação:
    ```bash
    dotnet run
    ```

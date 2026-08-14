@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Localization;
-using testeleo;
+using StudentRegistry;
 
-namespace testeleo.Models
+namespace StudentRegistry.Models
 {
     public class Premium : IValidatableObject
     {

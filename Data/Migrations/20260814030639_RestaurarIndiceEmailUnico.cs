@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace testeleo.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
     /// <inheritdoc />
     public partial class RestaurarIndiceEmailUnico : Migration

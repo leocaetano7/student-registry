@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using testeleo.Data;
-using testeleo;
+using StudentRegistry.Data;
+using StudentRegistry;
 
 var builder = WebApplication.CreateBuilder(args);
 

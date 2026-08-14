@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace testeleo.Resources.Students {
+namespace StudentRegistry.Resources.Students {
     using System;
     
     
@@ -38,7 +38,7 @@ namespace testeleo.Resources.Students {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("testeleo.Resources.Students.Index.en-US", typeof(Index_en_US).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StudentRegistry.Resources.Students.Index.en-US", typeof(Index_en_US).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity; 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using testeleo.Models;
+using StudentRegistry.Models;
 
-namespace testeleo.Data
+namespace StudentRegistry.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

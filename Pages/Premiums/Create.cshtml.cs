@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using testeleo.Data;
-using testeleo.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace testeleo.Pages_Premiums
+namespace StudentRegistry.Pages_Premiums
 {
     public class CreateModel : PageModel
     {

@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using testeleo.Data;
-using testeleo.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace testeleo.Pages_Premiums
+namespace StudentRegistry.Pages_Premiums
 {
     public class IndexModel : PageModel
     {
-        private readonly testeleo.Data.ApplicationDbContext _context;
+        private readonly StudentRegistry.Data.ApplicationDbContext _context;
 
-        public IndexModel(testeleo.Data.ApplicationDbContext context)
+        public IndexModel(StudentRegistry.Data.ApplicationDbContext context)
         {
             _context = context;
         }

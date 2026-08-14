@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using testeleo.Data;
-using testeleo.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace testeleo.Pages_Students
+namespace StudentRegistry.Pages_Students
 {
     public class CreateModel : PageModel
     {
-        private readonly testeleo.Data.ApplicationDbContext _context;
+        private readonly StudentRegistry.Data.ApplicationDbContext _context;
 
-        public CreateModel(testeleo.Data.ApplicationDbContext context)
+        public CreateModel(StudentRegistry.Data.ApplicationDbContext context)
         {
             _context = context;
         }

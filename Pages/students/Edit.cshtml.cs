@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using testeleo.Data;
-using testeleo.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace testeleo.Pages_Students
+namespace StudentRegistry.Pages_Students
 {
     public class EditModel : PageModel
     {
-        private readonly testeleo.Data.ApplicationDbContext _context;
+        private readonly StudentRegistry.Data.ApplicationDbContext _context;
 
-        public EditModel(testeleo.Data.ApplicationDbContext context)
+        public EditModel(StudentRegistry.Data.ApplicationDbContext context)
         {
             _context = context;
         }

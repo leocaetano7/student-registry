@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace testeleo.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
   
     public partial class CriarTabelaStudent : Migration

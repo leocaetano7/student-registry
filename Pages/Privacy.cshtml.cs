@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace testeleo.Pages;
+namespace StudentRegistry.Pages;
 
 public class PrivacyModel : PageModel
 {

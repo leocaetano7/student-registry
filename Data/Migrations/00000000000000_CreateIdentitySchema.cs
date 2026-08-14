@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace testeleo.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {
