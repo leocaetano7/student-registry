@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using RegistroDeEstudantes.Data;
 using RegistroDeEstudantes.Models;
 
@@ -10,10 +11,14 @@ namespace RegistroDeEstudantes.Pages_Premiums
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<SharedResource> _localizer;
+        private readonly ILogger<EditModel> _logger;
 
-        public EditModel(ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context, IStringLocalizer<SharedResource> localizer, ILogger<EditModel> logger)
         {
             _context = context;
+            _localizer = localizer;
+            _logger = logger;
         }
 
         public Premium Premium { get; set; } = default!;
@@ -35,12 +40,7 @@ namespace RegistroDeEstudantes.Pages_Premiums
 
             Premium = premium;
 
-            ViewData["StudentId"] = new SelectList(
-                _context.Students,
-                "Id",
-                "Email",
-                Premium.StudentId
-            );
+            LoadStudentsSelectList(Premium.StudentId); 
 
             return Page();
         }
@@ -77,23 +77,32 @@ namespace RegistroDeEstudantes.Pages_Premiums
 
                     throw;
                 }
+                catch (DbUpdateException ex)
+                {
+                    _logger.LogError(ex, "Erro ao atualizar premium {PremiumId}", id);
+                    ModelState.AddModelError(string.Empty, _localizer["PremiumSaveError"]);
+                }
             }
 
             Premium = premiumToUpdate;
 
-            ViewData["StudentId"] = new SelectList(
-                _context.Students,
-                "Id",
-                "Email",
-                Premium.StudentId
-            );
-
+            LoadStudentsSelectList(Premium.StudentId); 
             return Page();
         }
 
         private bool PremiumExists(int id)
         {
             return _context.Premiums.Any(e => e.Id == id);
+        }
+
+        private void LoadStudentsSelectList(int? selectedId = null)
+        {
+            ViewData["StudentId"] = new SelectList(
+                _context.Students,
+                "Id",
+                "Email",
+                selectedId
+            );
         }
     }
 }

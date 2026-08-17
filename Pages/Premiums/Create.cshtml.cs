@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using RegistroDeEstudantes.Data;
 using RegistroDeEstudantes.Models;
 
@@ -9,20 +11,19 @@ namespace RegistroDeEstudantes.Pages_Premiums
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<SharedResource> _localizer;
+        private readonly ILogger<CreateModel> _logger;
 
-        public CreateModel(ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext context, IStringLocalizer<SharedResource> localizer, ILogger<CreateModel> logger)
         {
             _context = context;
+            _localizer = localizer;
+            _logger = logger;
         }
 
         public IActionResult OnGet()
         {
-            ViewData["StudentId"] = new SelectList(
-                _context.Students,
-                "Id",
-                "Email"
-            );
-
+            LoadStudentsSelectList(); 
             return Page();
         }
 
@@ -33,20 +34,34 @@ namespace RegistroDeEstudantes.Pages_Premiums
         {
             if (!ModelState.IsValid)
             {
-                ViewData["StudentId"] = new SelectList(
-                    _context.Students,
-                    "Id",
-                    "Email",
-                    Premium.StudentId
-                );
-
-                return Page();
+                LoadStudentsSelectList(Premium.StudentId); 
             }
 
-            _context.Premiums.Add(Premium);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Premiums.Add(Premium);
+                await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+                return RedirectToPage("./Index");
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Erro ao salvar premium para o estudante {StudentId}", Premium.StudentId);
+                ModelState.AddModelError(string.Empty, _localizer["PremiumSaveError"]);
+
+                LoadStudentsSelectList(Premium.StudentId); 
+                return Page();
+            }
+        }
+
+        private void LoadStudentsSelectList(int? selectedId = null)
+        {
+            ViewData["StudentId"] = new SelectList(
+                _context.Students,
+                "Id",
+                "Email",
+                selectedId
+            );
         }
     }
 }

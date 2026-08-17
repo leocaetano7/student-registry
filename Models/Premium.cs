@@ -6,6 +6,7 @@ namespace RegistroDeEstudantes.Models
 {
     public class Premium : IValidatableObject
     {
+        [Key]
         [Display(Name = "Id")]
         public int Id { get; set; }
 
@@ -30,10 +31,27 @@ namespace RegistroDeEstudantes.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (EndDate < StartDate)
+            var localizer = validationContext.GetService(typeof(IStringLocalizer<SharedResource>))
+                as IStringLocalizer<SharedResource>;
+
+            if (StartDate == default)
             {
-                var localizer = validationContext.GetService(typeof(IStringLocalizer<SharedResource>))
-                    as IStringLocalizer<SharedResource>;
+                var message = localizer?["Premium_StartDateRequired"].Value
+                              ?? "Informe a data de início.";
+
+                yield return new ValidationResult(message, new[] { nameof(StartDate) });
+            }
+
+            if (EndDate == default)
+            {
+                var message = localizer?["Premium_EndDateRequired"].Value
+                              ?? "Informe a data de término.";
+
+                yield return new ValidationResult(message, new[] { nameof(EndDate) });
+            }
+
+            if (StartDate != default && EndDate != default && EndDate < StartDate)
+            {
                 var message = localizer?["Premium_EndDateBeforeStart"].Value
                               ?? "A data de término não pode ser anterior à data de início.";
 

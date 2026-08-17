@@ -27,9 +27,9 @@
 
     <ItemGroup>
         <Compile Remove="RegistroDeEstudantes.Tests/**/*.cs" />
-        <Compile Include="RegistroDeEstudantes.Tests\StudentTests.cs" />
         <EmbeddedResource Remove="RegistroDeEstudantes.Tests/**/*.resx" />
         <None Remove="RegistroDeEstudantes.Tests/**" />
     </ItemGroup>
-
+    
+    
 </Project>

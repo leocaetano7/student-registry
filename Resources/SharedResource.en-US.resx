@@ -229,7 +229,37 @@
   <data name="Premium_EndDateBeforeStart" xml:space="preserve">
     <value>The end date cannot be earlier than the start date.</value>
   </data>
+  <data name="Premium_StartDateRequired" xml:space="preserve">
+    <value>Please enter the start date.</value>
+  </data>
+  <data name="Premium_EndDateRequired" xml:space="preserve">
+    <value>Please enter the end date.</value>
+  </data>
   <data name="StudentDeleteWithPremiumError" xml:space="preserve">
     <value>It is not possible to delete this student because they have associated Premium plans.</value>
   </data>
+  <data name="StudentSaveError" xml:space="preserve">
+    <value>An error occurred while saving the student. Check whether the data (such as email) is already registered.</value>
+  </data>
+  <data name="StudentUpdateError" xml:space="preserve">
+    <value>It was not possible to save the changes.</value>
+  </data>
+  <data name="PremiumSaveError" xml:space="preserve">
+    <value>An error occurred while saving the Premium record. Check whether the selected student is valid.</value>
+  </data>
+  <data name="PremiumSaveError" xml:space="preserve">
+    <value>An error occurred while saving the Premium record. Check whether the selected student is valid.</value>
+</data>
+  <data name="Premium_EndDateRequired" xml:space="preserve">
+    <value>Please enter the end date.</value>
+</data>
+  <data name="Premium_StartDateRequired" xml:space="preserve">
+    <value>Please enter the start date.</value>
+</data>
+  <data name="StudentSaveError" xml:space="preserve">
+    <value>An error occurred while saving the student. Check whether the data (such as email) is already registered.</value>
+</data>
+  <data name="StudentUpdateError" xml:space="preserve">
+    <value>It was not possible to save the changes.</value>
+</data>
 </root>

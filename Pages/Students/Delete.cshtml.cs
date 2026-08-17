@@ -11,13 +11,16 @@ namespace RegistroDeEstudantes.Pages_Students
     {
         private readonly ApplicationDbContext _context;
         private readonly IStringLocalizer<SharedResource> _localizer;
+        private readonly ILogger<DeleteModel> _logger; // <<< NOVO
 
         public DeleteModel(
             ApplicationDbContext context,
-            IStringLocalizer<SharedResource> localizer)
+            IStringLocalizer<SharedResource> localizer,
+            ILogger<DeleteModel> logger) // <<< NOVO parâmetro
         {
             _context = context;
             _localizer = localizer;
+            _logger = logger; // <<< NOVO
         }
 
         [BindProperty]
@@ -62,8 +65,9 @@ namespace RegistroDeEstudantes.Pages_Students
                 _context.Students.Remove(student);
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException ex) // <<< adicionou "ex"
             {
+                _logger.LogError(ex, "Erro ao excluir estudante {StudentId}", student.Id); // <<< NOVO
                 Student = student;
 
                 ModelState.AddModelError(

@@ -19,11 +19,11 @@ namespace RegistroDeEstudantes.Pages_Premiums
             _context = context;
         }
 
-        public IList<Premium> Premium { get;set; } = default!;
+        public IList<Premium> Premiums { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Premium = await _context.Premiums
+            Premiums = await _context.Premiums
                 .Include(p => p.Student).ToListAsync();
         }
     }

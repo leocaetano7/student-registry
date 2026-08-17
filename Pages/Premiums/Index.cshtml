@@ -12,24 +12,24 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Premium[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Premium[0].StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Premium[0].EndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Premium[0].Student)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Premiums[0].Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Premiums[0].StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Premiums[0].EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Premiums[0].Student)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Premium) {
+    @foreach (var item in Model.Premiums) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             <td>
-            @Html.DisplayFor(modelItem => item.Student!.Email)
+                @Html.DisplayFor(modelItem => item.Student!.Email)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">@Localizer["ActionEdit"]</a> |
@@ -49,6 +49,6 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">@Localizer["ActionDelete"]</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

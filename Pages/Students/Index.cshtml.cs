@@ -19,11 +19,11 @@ namespace RegistroDeEstudantes.Pages_Students
             _context = context;
         }
 
-        public IList<Student> Student { get;set; } = default!;
+        public IList<Student> Students { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Student = await _context.Students.ToListAsync();
+            Students = await _context.Students.ToListAsync();
         }
     }
 }
