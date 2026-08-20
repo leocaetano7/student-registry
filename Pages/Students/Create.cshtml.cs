@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,20 +6,20 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Localization;
-using RegistroDeEstudantes.Data;
-using RegistroDeEstudantes.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 using Microsoft.Extensions.Logging;
 
-namespace RegistroDeEstudantes.Pages_Students
+namespace StudentRegistry.Pages_Students
 {
     public class CreateModel : PageModel
     {
-        private readonly RegistroDeEstudantes.Data.ApplicationDbContext _context;
+        private readonly StudentRegistry.Data.ApplicationDbContext _context;
         private readonly IStringLocalizer<SharedResource> _localizer;
         private readonly ILogger<CreateModel> _logger;
 
         public CreateModel(
-            RegistroDeEstudantes.Data.ApplicationDbContext context,
+            StudentRegistry.Data.ApplicationDbContext context,
             IStringLocalizer<SharedResource> localizer,
             ILogger<CreateModel> logger)
         {

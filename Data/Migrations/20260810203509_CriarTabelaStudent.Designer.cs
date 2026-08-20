@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RegistroDeEstudantes.Data;
+using StudentRegistry.Data;
 
 #nullable disable
 
-namespace RegistroDeEstudantes.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20260810203509_CriarTabelaStudent")]
@@ -216,7 +216,7 @@ namespace RegistroDeEstudantes.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("RegistroDeEstudantes.Models.Premium", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Premium", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -243,7 +243,7 @@ namespace RegistroDeEstudantes.Data.Migrations
                     b.ToTable("Premiums");
                 });
 
-            modelBuilder.Entity("RegistroDeEstudantes.Models.Student", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -314,9 +314,9 @@ namespace RegistroDeEstudantes.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RegistroDeEstudantes.Models.Premium", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Premium", b =>
                 {
-                    b.HasOne("RegistroDeEstudantes.Models.Student", "Student")
+                    b.HasOne("StudentRegistry.Models.Student", "Student")
                         .WithMany("Premiums")
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -325,7 +325,7 @@ namespace RegistroDeEstudantes.Data.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("RegistroDeEstudantes.Models.Student", b =>
+            modelBuilder.Entity("StudentRegistry.Models.Student", b =>
                 {
                     b.Navigation("Premiums");
                 });
@@ -333,3 +333,4 @@ namespace RegistroDeEstudantes.Data.Migrations
         }
     }
 }
+

@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace RegistroDeEstudantes.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
     /// <inheritdoc />
     public partial class RestaurarIndiceEmailUnico : Migration
@@ -26,3 +26,4 @@ namespace RegistroDeEstudantes.Data.Migrations
         }
     }
 }
+

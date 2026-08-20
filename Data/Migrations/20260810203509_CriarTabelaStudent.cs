@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace RegistroDeEstudantes.Data.Migrations
+namespace StudentRegistry.Data.Migrations
 {
   
     public partial class CriarTabelaStudent : Migration
@@ -64,3 +64,4 @@ namespace RegistroDeEstudantes.Data.Migrations
         }
     }
 }
+

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RegistroDeEstudantes.Pages;
+namespace StudentRegistry.Pages;
 
 public class PrivacyModel : PageModel
 {

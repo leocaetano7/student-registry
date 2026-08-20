@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using RegistroDeEstudantes.Data;
-using RegistroDeEstudantes.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace RegistroDeEstudantes.Pages_Students
+namespace StudentRegistry.Pages_Students
 {
     public class EditModel : PageModel
     {
@@ -13,7 +13,7 @@ namespace RegistroDeEstudantes.Pages_Students
         private readonly IStringLocalizer<SharedResource> _localizer;
         private readonly ILogger<EditModel> _logger; // <<< NOVO
 
-        public EditModel(ApplicationDbContext context, IStringLocalizer<SharedResource> localizer, ILogger<EditModel> logger) // <<< NOVO parâmetro
+        public EditModel(ApplicationDbContext context, IStringLocalizer<SharedResource> localizer, ILogger<EditModel> logger) // <<< NOVO parÃ¢metro
         {
             _context = context;
             _localizer = localizer;

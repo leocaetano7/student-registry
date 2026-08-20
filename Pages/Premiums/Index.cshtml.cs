@@ -1,20 +1,20 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RegistroDeEstudantes.Data;
-using RegistroDeEstudantes.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace RegistroDeEstudantes.Pages_Premiums
+namespace StudentRegistry.Pages_Premiums
 {
     public class IndexModel : PageModel
     {
-        private readonly RegistroDeEstudantes.Data.ApplicationDbContext _context;
+        private readonly StudentRegistry.Data.ApplicationDbContext _context;
 
-        public IndexModel(RegistroDeEstudantes.Data.ApplicationDbContext context)
+        public IndexModel(StudentRegistry.Data.ApplicationDbContext context)
         {
             _context = context;
         }

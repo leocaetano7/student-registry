@@ -1,20 +1,20 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RegistroDeEstudantes.Data;
-using RegistroDeEstudantes.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace RegistroDeEstudantes.Pages_Premiums
+namespace StudentRegistry.Pages_Premiums
 {
     public class DetailsModel : PageModel
     {
-        private readonly RegistroDeEstudantes.Data.ApplicationDbContext _context;
+        private readonly StudentRegistry.Data.ApplicationDbContext _context;
 
-        public DetailsModel(RegistroDeEstudantes.Data.ApplicationDbContext context)
+        public DetailsModel(StudentRegistry.Data.ApplicationDbContext context)
         {
             _context = context;
         }
@@ -42,3 +42,4 @@ namespace RegistroDeEstudantes.Pages_Premiums
         }
     }
 }
+

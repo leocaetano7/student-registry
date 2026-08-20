@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using RegistroDeEstudantes.Data;
-using RegistroDeEstudantes;
+using StudentRegistry.Data;
+using StudentRegistry;
 
 var builder = WebApplication.CreateBuilder(args);
 

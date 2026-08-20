@@ -1,8 +1,8 @@
-using System.ComponentModel.DataAnnotations;
-using RegistroDeEstudantes.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using StudentRegistry.Models;
 using Xunit;
 
-namespace RegistroDeEstudantes.Tests;
+namespace StudentRegistry.Tests;
 
 public class StudentTests
 {
@@ -165,3 +165,4 @@ public class PremiumTests
         Assert.Contains(results, r => r.MemberNames.Contains(nameof(Premium.Title)));
     }
 }
+

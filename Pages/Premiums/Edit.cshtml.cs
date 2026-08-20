@@ -1,12 +1,12 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using RegistroDeEstudantes.Data;
-using RegistroDeEstudantes.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace RegistroDeEstudantes.Pages_Premiums
+namespace StudentRegistry.Pages_Premiums
 {
     public class EditModel : PageModel
     {

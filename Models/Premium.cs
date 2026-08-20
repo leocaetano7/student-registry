@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Localization;
-using RegistroDeEstudantes;
+using StudentRegistry;
 
-namespace RegistroDeEstudantes.Models
+namespace StudentRegistry.Models
 {
     public class Premium : IValidatableObject
     {

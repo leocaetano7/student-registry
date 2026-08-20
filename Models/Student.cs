@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RegistroDeEstudantes.Models;
+namespace StudentRegistry.Models;
 
 public class Student
 {
@@ -22,3 +22,4 @@ public class Student
 
     public List<Premium> Premiums { get; set; } = new();
 }
+

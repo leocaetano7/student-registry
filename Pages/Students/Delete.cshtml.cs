@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using RegistroDeEstudantes.Data;
-using RegistroDeEstudantes.Models;
+using StudentRegistry.Data;
+using StudentRegistry.Models;
 
-namespace RegistroDeEstudantes.Pages_Students
+namespace StudentRegistry.Pages_Students
 {
     public class DeleteModel : PageModel
     {
@@ -16,7 +16,7 @@ namespace RegistroDeEstudantes.Pages_Students
         public DeleteModel(
             ApplicationDbContext context,
             IStringLocalizer<SharedResource> localizer,
-            ILogger<DeleteModel> logger) // <<< NOVO parâmetro
+            ILogger<DeleteModel> logger) // <<< NOVO parÃ¢metro
         {
             _context = context;
             _localizer = localizer;

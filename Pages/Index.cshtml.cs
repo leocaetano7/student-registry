@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
 using System;
 
-namespace RegistroDeEstudantes.Pages;
+namespace StudentRegistry.Pages;
 
 public class IndexModel : PageModel
 {
