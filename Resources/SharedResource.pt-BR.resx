@@ -247,19 +247,4 @@
   <data name="PremiumSaveError" xml:space="preserve">
     <value>Ocorreu um erro ao salvar o registro Premium. Verifique se o estudante selecionado é válido.</value>
   </data>
-  <data name="PremiumSaveError" xml:space="preserve">
-    <value>Ocorreu um erro ao salvar o registro Premium. Verifique se o estudante selecionado é válido.</value>
-</data>
-  <data name="Premium_EndDateRequired" xml:space="preserve">
-    <value>Informe a data de término.</value>
-</data>
-  <data name="Premium_StartDateRequired" xml:space="preserve">
-    <value>Informe a data de início.</value>
-</data>
-  <data name="StudentSaveError" xml:space="preserve">
-    <value>Ocorreu um erro ao salvar o estudante. Verifique se os dados (como e-mail) já estão cadastrados.</value>
-</data>
-  <data name="StudentUpdateError" xml:space="preserve">
-    <value>Não foi possível salvar as alterações.</value>
-</data>
 </root>
