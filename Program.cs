@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using StudentRegistry.Data;
 using StudentRegistry;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 // 1. CONFIGURAÇÃO DE IDIOMAS
 // ==========================================
 var supportedCultures = new[] { "pt-BR", "en-US" };
+
+builder.Host.UseSerilog((context, config) =>
+    config.ReadFrom.Configuration(context.Configuration)
+        .Enrich.FromLogContext()
+        .WriteTo.Console());
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
@@ -27,6 +33,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
+
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<ApplicationDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -75,6 +84,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapHealthChecks("/health");
 
 app.Run();
 
