@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using StudentRegistry.Data;
 using StudentRegistry;
 using Serilog;
+using OpenTelemetry.Trace;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +42,19 @@ builder.Services.AddHealthChecks()
     .AddDbContextCheck<ApplicationDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+// ==========================================
+// TELEMETRIA (OpenTelemetry / Aspire)
+// ==========================================
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource => resource.AddService("StudentRegistry"))
+    .WithTracing(tracing => tracing
+        .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation())
+    .WithMetrics(metrics => metrics
+        .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation())
+    .UseOtlpExporter();
 
 // ==========================================
 // 3. IDENTITY

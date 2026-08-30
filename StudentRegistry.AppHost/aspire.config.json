@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "StudentRegistry.AppHost.csproj"
+  }
+}
