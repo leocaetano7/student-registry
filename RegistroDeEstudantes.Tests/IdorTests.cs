@@ -83,7 +83,7 @@ public class IdorTests : IClassFixture<CustomWebApplicationFactory>
         await RegistrarELogarUsuarioDeTesteAsync();
         var (idRota, idForjado) = SeedDoisStudents();
 
-        var editGet = await _client.GetAsync($"/Students/Edit/{idRota}");
+        var editGet = await _client.GetAsync($"/Students/Edit?id={idRota}");
         Assert.Equal(HttpStatusCode.OK, editGet.StatusCode);
 
         var editHtml = await editGet.Content.ReadAsStringAsync();
@@ -98,7 +98,7 @@ public class IdorTests : IClassFixture<CustomWebApplicationFactory>
         };
 
         var editPost = await _client.PostAsync(
-            $"/Students/Edit/{idRota}",
+            $"/Students/Edit?id={idRota}",
             new FormUrlEncodedContent(formForjado));
 
         Assert.True(
@@ -107,7 +107,7 @@ public class IdorTests : IClassFixture<CustomWebApplicationFactory>
 
         using var verifyScope = _factory.Services.CreateScope();
         var verifyContext = verifyScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-
+'
         var estudanteDaRotaAtualizado = await verifyContext.Students.FindAsync(idRota);
         var estudanteForjadoIntacto = await verifyContext.Students.FindAsync(idForjado);
 

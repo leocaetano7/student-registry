@@ -30,18 +30,20 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 // ==========================================
-// 2. BANCO DE DADOS 
+// 2. BANCO DE DADOS
 // ==========================================
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
-                       throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connectionString));
+if (!builder.Environment.IsEnvironment("Testing"))
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+                           throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseNpgsql(connectionString));
+}
 
 builder.Services.AddHealthChecks()
     .AddDbContextCheck<ApplicationDbContext>();
-
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // ==========================================
 // TELEMETRIA (OpenTelemetry / Aspire)
@@ -77,7 +79,7 @@ builder.Services.AddRazorPages(options =>
 var app = builder.Build();
 
 // ==========================================
-// 3. PIPELINE DE REQUISIÇÕES 
+// 3. PIPELINE DE REQUISIÇÕES
 // ==========================================
 
 app.UseRequestLocalization();
