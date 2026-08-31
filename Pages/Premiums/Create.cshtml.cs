@@ -23,7 +23,7 @@ namespace StudentRegistry.Pages_Premiums
 
         public IActionResult OnGet()
         {
-            LoadStudentsSelectList(); 
+            LoadStudentsSelectList();
             return Page();
         }
 
@@ -34,7 +34,8 @@ namespace StudentRegistry.Pages_Premiums
         {
             if (!ModelState.IsValid)
             {
-                LoadStudentsSelectList(Premium.StudentId); 
+                LoadStudentsSelectList(Premium.StudentId);
+                return Page();
             }
 
             try
@@ -49,7 +50,7 @@ namespace StudentRegistry.Pages_Premiums
                 _logger.LogError(ex, "Erro ao salvar premium para o estudante {StudentId}", Premium.StudentId);
                 ModelState.AddModelError(string.Empty, _localizer["PremiumSaveError"]);
 
-                LoadStudentsSelectList(Premium.StudentId); 
+                LoadStudentsSelectList(Premium.StudentId);
                 return Page();
             }
         }
