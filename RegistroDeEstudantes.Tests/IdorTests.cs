@@ -107,7 +107,6 @@ public class IdorTests : IClassFixture<CustomWebApplicationFactory>
 
         using var verifyScope = _factory.Services.CreateScope();
         var verifyContext = verifyScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-'
         var estudanteDaRotaAtualizado = await verifyContext.Students.FindAsync(idRota);
         var estudanteForjadoIntacto = await verifyContext.Students.FindAsync(idForjado);
 
